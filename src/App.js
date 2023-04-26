@@ -3,9 +3,11 @@ import FormComponent from './Form/FormComponent'
 
 const App = () => {
     return (
-        <div className="App">
-            <FormComponent />
+
+        <div>
+                <FormComponent />
         </div>
+       
     );
 };
 

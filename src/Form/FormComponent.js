@@ -33,29 +33,47 @@ const FormComponent = () => {
         !allValid && setHover(true);
         setOnRight(!isOnRight)
     };
-      const handleMouseOut = () => {
+
+    const handleMouseOut = () => {
           setHover(false);
      
     };
 
     const divStyle = {
-        transform: isHover ? (isOnRight ? 'translateX(100px)' : 'translateX(0px)') : 0,
-        transition: 'transform 0.3s ease-in-out'
+        transform: isHover ? (isOnRight ? 'translateX(100px)' : 'translateX(-100px)') : 0,
+        transition: 'transform 0.3s ease-in-out',
+        backgroundColor: '#000000',
+        border: 'none',
+        color: 'white',
+        padding: '12px 24px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '13px',
+        margin: '4px 2px',
+        cursor: 'pointer',
+        borderRadius: '8px',
     };
+
+    const formStyle = {
+        display: 'block',
+        width: '300px',
+        margin: '0 0 1rem 0',
+        borderRadius: '5px',
+        padding: '0.5rem'
+
+    }
 
     return (
 
-        <form ref={formRef}>
-            <label>
-                Username
-                <input type="text" name="username" onChange={handleValidations}/>
-            </label>    
-            <label>
-                Password
-                <input type="password" name="password" onChange={handleValidations} />
-            </label>
-            <button onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={divStyle} onClick={handleSubmit}>Submit</button>
-        </form>
+       
+            <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 200 }} ref={formRef}>
+           
+                <input type="text" placeholder="username" name="username" style={formStyle} onChange={handleValidations} />
+                <input type="password" placeholder="password" name="password" style={formStyle} onChange={handleValidations} />
+                <button onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={divStyle} onClick={handleSubmit}> Submit </button>
+            </form>
+       
         
         );
 };
